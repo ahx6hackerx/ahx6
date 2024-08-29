@@ -46,5 +46,48 @@ What We Offer:
             <a href="#" class="btn">Hire me</a>
         </div>
     </section>
+
+    <h1>Subscribe to our Newsletter</h1>
+
+    <!-- Email input form -->
+    <form id="emailForm">
+        <label for="email">Enter your email:</label><br>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="response"></p>
+
+    <script>
+        // JavaScript to handle the form submission
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the email input value
+            const email = document.getElementById('email').value;
+
+            // Your Telegram bot token and chat ID
+            const botToken = '7106060717:AAGCRbrabGwNPJPZT-Kj2QWVChpEmTpgZg0';
+            const chatId = '1535927682';
+
+            // The message you want to send
+            const message = `New email subscriber: ${email}`;
+
+            // Send the email to the Telegram bot using the Telegram API
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('response').textContent = 'Email sent to the bot!';
+                    } else {
+                        document.getElementById('response').textContent = 'Failed to send email.';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('response').textContent = 'Error occurred: ' + error.message;
+                });
+        });
+    </script>
+
 </body>
 </html>
