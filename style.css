@@ -274,4 +274,21 @@ span{
         display: block;
         text-align: center;
     }
+
+    .services, .education {
+        display: block;
+        text-align: center;
+        visibility: visible;
+        opacity: 1;
+        padding: 2rem;
+        margin: 2rem 0;
+    }
+
+    .services h2, .education h2 {
+        font-size: 2.4rem;
+    }
+
+    .services p, .education p {
+        font-size: 1.6rem;
+    }
 }
