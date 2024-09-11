@@ -268,3 +268,10 @@ span{
     }
 }
 
+/* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: block;
+        text-align: center;
+    }
+}
